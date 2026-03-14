@@ -1,6 +1,6 @@
 # Cyberpunk 2077 FOV Changer
 
-Runtime FOV patcher for **Cyberpunk 2077** using **AOB scanning** and an **in-place code patch**.
+Runtime FOV patcher for **Cyberpunk 2077** using **AOB scanning** and an **inplace code patch**.
 
 This project changes the game's field of view by locating the internal FOV writer inside `Cyberpunk2077.exe` and replacing its original write logic with a custom FOV value.  
 It does **not** rely on hardcoded dynamic addresses, which makes it usable across game sessions.
@@ -14,17 +14,15 @@ It does **not** rely on hardcoded dynamic addresses, which makes it usable acros
 - Uses a stable **AOB signature** to locate the correct writer function
 - Very lightweight
 - Built in **C++**
-- No Cheat Engine required for normal use
-- Designed for **offline single-player use**
 
 ---
 
 ## How It Works
 
-Cyberpunk 2077 stores many camera-related values in memory, but most of them are **dynamic**.  
+Cyberpunk 2077 stores many camera-related values in memory, but most of them are dynamic.  
 That means the raw memory addresses change every time the game launches, so simply finding a value once and hardcoding its address is not reliable.
 
-This project avoids that problem by targeting the **code that writes the FOV value**, not the temporary memory address itself.
+This project avoids that problem by targeting the code that writes the FOV value, not the temporary memory address itself.
 
 ### Final Method Used
 
@@ -39,8 +37,6 @@ The final working solution was:
    - locate the writer stub every session
    - patch the stub so the game writes the user-defined FOV
 
-Instead of chasing changing memory addresses, the tool modifies the writer responsible for updating the FOV.
-
 ---
 
 ## Why This Method Was Chosen
@@ -51,26 +47,13 @@ During development, several different approaches were tested.
 
 This worked only for the current game session because the addresses changed every time the game restarted.
 
-### 2. Freezing Multiple Values
-
-At first, multiple addresses appeared to affect FOV.  
-However, many of them were only:
-
-- temporary values
-- copied values
-- derived values
-- values that were immediately overwritten by the game
-
-This made the solution messy and unreliable.
-
-### 3. Scanning Memory for Similar Float Values
+### 2. Scanning Memory for Similar Float Values
 
 This produced too many false positives because many unrelated values in memory matched similar float values.
 
-### 4. Hooking the Writer Function
+### 3. Hooking the Writer Function
 
-A hook-based version was tested.  
-It successfully found the writer stub, but the implementation caused crashes because the jump target used in the hook was too far away for the patch style that was being used.
+A hook-based version was tested and it successfully found the writer stub, but the implementation caused crashes because the jump target used in the hook was too far away for the patch style that was being used.
 
 ### Final Working Solution: In-Place Patch
 
