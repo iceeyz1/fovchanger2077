@@ -7,6 +7,12 @@ It does **not** rely on hardcoded dynamic addresses, which makes it usable acros
 
 ---
 
+## Preview
+
+![screenshot](https://i.imgur.com/eLJU9jV.jpeg)
+
+---
+
 ## Features
 
 - Changes FOV to any value you enter
