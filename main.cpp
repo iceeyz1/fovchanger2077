@@ -1,3 +1,8 @@
+/*
+This Program was made by iceeyz1
+github: https://github.com/iceeyz1
+*/
+
 #define NOMINMAX
 #include <windows.h>
 #include <tlhelp32.h>
