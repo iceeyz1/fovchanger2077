@@ -18,7 +18,7 @@ It does **not** rely on hardcoded dynamic addresses, which makes it usable acros
 - Changes FOV to any value you enter
 - Works across sessions without hardcoding temporary addresses
 - Uses a stable **AOB signature** to locate the correct writer function
-- Very lightweight
+- Lightweight
 - Built in **C++**
 
 ---
