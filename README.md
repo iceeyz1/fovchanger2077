@@ -1,6 +1,6 @@
 # Cyberpunk 2077 FOV Changer
 
-Runtime FOV patcher for **Cyberpunk 2077** using **AOB scanning** and an **inplace code patch**.
+FOV patcher for **Cyberpunk 2077** using **AOB scanning** and an **inplace code patch**.
 
 This project changes the game's field of view by locating the internal FOV writer inside `Cyberpunk2077.exe` and replacing its original write logic with a custom FOV value.  
 It does **not** rely on hardcoded dynamic addresses, which makes it usable across game sessions.
